@@ -1,32 +1,32 @@
+/* Estilos generales del cuerpo */
 body {
     margin-top: 20px;
     background-image: url("../img/bg-img.jpg");
-    
   }
   
+  /* Estilo del encabezado */
   h1 {
     margin: auto;
     color: #ebebeb;
   }
   
+  /* Área de la línea de tiempo */
   .single-timeline-area {
     position: relative;
     z-index: 1;
     padding-left: 0; /* Eliminar padding para alinear a la izquierda */
-   
   }
   
+  /* Elementos de la línea de tiempo */
   .timeline-item {
     display: inline-block; /* Cambiado para que los items se alineen en línea */
     width: 30%; /* Ajusta el ancho según sea necesario */
     margin: 10px; /* Espaciado entre los elementos */
     vertical-align: top; /* Alinear la parte superior de los elementos */
     background-color: #ebebeb;
-    
   }
   
-  
-  
+  /* Fecha de la línea de tiempo */
   .single-timeline-area .timeline-date {
     position: absolute;
     width: 180px;
@@ -41,8 +41,7 @@ body {
     background-color: #ebebeb;
   }
   
-  
-  
+  /* Línea de separación y punto de fecha */
   .single-timeline-area .timeline-date::after {
     position: absolute;
     width: 3px;
@@ -59,50 +58,53 @@ body {
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    background-color: #f1c40f;
+    /* background-color: #f1c40f; */
     content: "";
     top: 50%;
     right: 26px;
     z-index: 5;
-    margin-top: -5.5px;
+    margin-top: -5.5px; /* Centrando el punto */
   }
   
-  .single-timeline-area p {
+  /* Texto de la fecha */
+  .single-timeline-area .timeline-date p {
     margin-bottom: 0;
     color: #020710;
     font-size: 13px;
     text-transform: uppercase;
     font-weight: 500;
   }
+  
+  /* Contenido de la línea de tiempo */
   .single-timeline-area .single-timeline-content {
-      position: relative;
-      z-index: 1;
-      padding: 20px; /* Ajusta según sea necesario */
-      border-radius: 6px;
-      margin-bottom: 15px;
-      box-shadow: 0 0.25rem 1rem rgba(47, 91, 234, 0.125);
-      border: 1px solid #ebebeb;
-      text-align: center; /* Centramos el texto */
+    position: relative;
+    z-index: 1;
+    padding: 20px; /* Ajusta según sea necesario */
+    border-radius: 6px;
+    margin-bottom: 15px;
+    box-shadow: 0 0.25rem 1rem rgba(47, 91, 234, 0.125);
+    border: 1px solid #ebebeb;
+    text-align: center; /* Centramos el texto */
   }
   
-  
+  /* Icono de la línea de tiempo */
   .single-timeline-area .single-timeline-content .timeline-icon {
     transition-duration: 500ms;
     width: 30px;
     height: 30px;
-    background-color: #f1c40f;
     flex: 0 0 30px;
     text-align: center;
     border-radius: 50%;
     margin-right: 15px;
   }
   
+  
   .single-timeline-area .single-timeline-content .timeline-icon i {
-    color: #ffffff;
+    /* color: #ffffff; */
     line-height: 30px;
-    
   }
   
+  /* Títulos y texto del contenido */
   .single-timeline-area .single-timeline-content .timeline-text h6 {
     transition-duration: 500ms;
   }
@@ -112,6 +114,7 @@ body {
     margin-bottom: 0;
   }
   
+  /* Efectos al pasar el ratón */
   .single-timeline-area .single-timeline-content:hover .timeline-icon,
   .single-timeline-area .single-timeline-content:focus .timeline-icon {
     background-color: #020710;
@@ -122,7 +125,7 @@ body {
     color: #3f43fd;
   }
   
-  
+  /* Estilo de texto destacado */
   span,
   .fw-bold {
     margin: auto;
@@ -130,18 +133,59 @@ body {
     text-align: center;
     font-size: 22px;
     font-weight: bold;
-    background-color:#3f43fd;
+    background-color: #3f43fd;
     color: #020710;
   }
   
+  /* Estilos responsivos para pantallas pequeñas */
+  /* Estilos para pantallas pequeñas (max-width: 575px) */
   @media only screen and (max-width: 575px) {
-      .timeline-item {
+    .timeline-item {
         width: 100%; /* Ajustar el tamaño al 100% en pantallas pequeñas */
-      }
-      .single-timeline-area .timeline-date {
+    }
+    .single-timeline-area .timeline-date {
         width: 100px;
-      }
-      .single-timeline-area .single-timeline-content {
+    }
+    .single-timeline-area .single-timeline-content {
         padding: 20px;
-      }
+    }
   }
+  
+  /* Estilos para pantallas medianas (min-width: 576px y max-width: 750px) */
+  @media only screen and (min-width: 576px) and (max-width: 750px) {
+    .timeline-item {
+        width: 45%; /* Ajustar el tamaño al 45% en pantallas medianas */
+    }
+    .single-timeline-area .timeline-date {
+        width: 150px;
+    }
+    .single-timeline-area .single-timeline-content {
+        padding: 15px;
+    }
+  }
+  
+  /* Estilos para pantallas grandes (min-width: 752px) */
+  @media only screen and (min-width: 752px) {
+    .timeline-item {
+        width: 30%; /* Mantener un tamaño del 30% en pantallas grandes */
+    }
+    .single-timeline-area .timeline-date {
+        width: 180px;
+    }
+    .single-timeline-area .single-timeline-content {
+        padding: 10px;
+    }
+  }
+  
+  .red {
+    background-color: #f1c40f; /* Amarillo */
+  }
+  
+  .success {
+    background-color: #28a745; /* Verde */
+  }
+  
+  .danger {
+    background-color: #dc3545; /* Naranja o Rojo */
+  }
+  
