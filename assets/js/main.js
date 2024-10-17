@@ -1,7 +1,7 @@
 
 import { fetchCharactersGenerator } from './src/utils/characterGenerator.js'
 
-
+/*
 async function displayCharacter(containerId, characterGenerator, range) {
     const container = document.getElementById(containerId);
     try {
@@ -15,7 +15,7 @@ async function displayCharacter(containerId, characterGenerator, range) {
         container.innerHTML += `<p>Error loading character data.</p>`;
     }
 }
-
+*/
 
 function createCharacterCard(character, range) {
     const iconColorClass = range === "1-5" ? "yellow" :
@@ -68,4 +68,6 @@ function initializeCharacterFetch() {
 
 // Inicializar la carga de personajes cuando el documento esté listo
 document.addEventListener('DOMContentLoaded', initializeCharacterFetch);
+
+
 
