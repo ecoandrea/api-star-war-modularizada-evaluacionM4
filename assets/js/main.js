@@ -18,9 +18,9 @@ async function displayCharacter(containerId, characterGenerator, range) {
 
 
 function createCharacterCard(character, range) {
-    const iconColorClass = range === "1-5" ? "red" :
-                            range === "6-11" ? "success" :
-                            range === "12-17" ? "danger" :
+    const iconColorClass = range === "1-5" ? "yellow" :
+                            range === "6-11" ? "green" :
+                            range === "12-17" ? "red" :
                             "";
 
     return `
@@ -38,6 +38,7 @@ function createCharacterCard(character, range) {
 }
 
 
+
 function initializeCharacterFetch() {
     document.querySelectorAll('.timeline-item').forEach(item => {
         const [start, end] = item.getAttribute('data-range').split('-').map(Number);
@@ -46,17 +47,25 @@ function initializeCharacterFetch() {
         const range = item.getAttribute('data-range');
 
         item.addEventListener('click', async () => {
-            await displayCharacter(containerId, characterGenerator, range);
+            try {
+                const { value: character, done } = await characterGenerator.next();
+
+                if (done) {
+                    alert('No hay más personajes en este rango de búsqueda.');
+                    return; // Salir si no hay más personajes
+                }
+
+                const cardHTML = createCharacterCard(character, range); // Asegúrate de pasar el rango
+                const container = document.getElementById(containerId);
+                container.innerHTML += cardHTML; // Agrega la tarjeta al contenedor
+            } catch (error) {
+                console.error(error);
+                alert('Ocurrió un error al cargar el personaje.');
+            }
         });
     });
 }
 
 // Inicializar la carga de personajes cuando el documento esté listo
 document.addEventListener('DOMContentLoaded', initializeCharacterFetch);
-
-
-// Llama a la función de inicialización al cargar el script
-
-
-
 
